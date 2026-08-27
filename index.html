@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freedom TV - Independent & Unbiased News</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'freedom-red': '#D32F2F',
+                        'freedom-blue': '#1976D2',
+                        'freedom-dark': '#121212',
+                        'freedom-gray': '#2C2C2C'
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #D32F2F;
+        }
+        
+        .video-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+        }
+        
+        .play-button {
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        
+        .video-card:hover .play-button {
+            transform: scale(1.1);
+            background-color: #D32F2F;
+        }
+
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background-color: #D32F2F;
+            padding-left: 100%;
+            box-sizing: content-box;
+        }
+
+        .ticker {
+            display: inline-block;
+            white-space: nowrap;
+            padding-right: 100%;
+            box-sizing: content-box;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-name: ticker;
+            animation-duration: 30s;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translate3d(0, 0, 0);
+                visibility: visible;
+            }
+            100% {
+                transform: translate3d(-100%, 0, 0);
+            }
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121212; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2C2C2C; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D32F2F; 
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="bg-freedom-dark border-b border-gray-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0 flex items-center gap-3 group">
+                        <img src="Freedom News Logo (No BG).jpg" alt="Freedom TV Logo" class="w-10 h-10 rounded-full object-cover border border-freedom-red">
+                        <span class="font-serif font-bold text-2xl tracking-wider">FREEDOM<span class="text-freedom-red">TV</span></span>
+                    </a>
+                    <div class="hidden md:block ml-10">
+                        <div class="flex items-baseline space-x-8">
+                            <a href="#" class="nav-link text-white px-3 py-2 rounded-md text-sm font-bold uppercase tracking-wide border-b-2 border-freedom-red">Live</a>
+                            <a href="#" class="nav-link text-gray-300 px-3 py-2 rounded-md text-sm font-bold uppercase tracking-wide">Originals</a>
+                            <a href="#" class="nav-link text-gray-300 px-3 py-2 rounded-md text-sm font-bold uppercase tracking-wide">Politics</a>
+                            <a href="#" class="nav-link text-gray-300 px-3 py-2 rounded-md text-sm font-bold uppercase tracking-wide">World</a>
+                            <a href="#" class="nav-link text-gray-300 px-3 py-2 rounded-md text-sm font-bold uppercase tracking-wide">Economy</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="relative hidden sm:block">
+                        <input type="text" placeholder="Search news..." class="bg-freedom-gray text-white text-sm rounded-full pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-freedom-blue w-64">
+                        <i class="fas fa-search absolute left-4 top-2.5 text-gray-400"></i>
+                    </div>
+                    <button class="md:hidden text-gray-300 hover:text-white">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breaking News Ticker -->
+    <div class="ticker-wrap h-10 flex items-center">
+        <div class="ticker text-white font-bold text-sm tracking-wide">
+            <span class="bg-white text-freedom-red px-2 py-1 rounded mr-3 uppercase text-xs">Breaking</span>
+            Freedom News is Coming Soon! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="bg-white text-freedom-red px-2 py-1 rounded mr-3 uppercase text-xs">Update</span>
+            Freedom News is Expanding The Crew &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Featured Live Stream -->
+        <div class="mb-12">
+            <div class="flex items-center gap-2 mb-4">
+                <div class="w-3 h-3 bg-red-600 rounded-full animate-pulse"></div>
+                <h2 class="text-xl font-bold uppercase tracking-wider text-red-500">Featured Broadcast</h2>
+            </div>
+            
+            <div class="relative w-full aspect-video bg-gray-900 rounded-lg overflow-hidden shadow-2xl group cursor-pointer border border-gray-800 flex items-center justify-center">
+                <!-- Single Featured Video Box -->
+                <div class="text-center p-6">
+                    <i class="fas fa-play-circle text-7xl text-freedom-red mb-4 hover:scale-110 transition-transform cursor-pointer"></i>
+                    <h2 class="text-2xl md:text-3xl font-serif font-bold text-white tracking-wider mb-2">Gun Laws, The Idea That Didn't Work [Video]</h2>
+                    <p class="text-gray-400 mt-2 max-w-xl mx-auto text-sm md:text-base">An investigative report looking closely at the history, statistics, and impact of various firearms regulations across jurisdictions.</p>
+                </div>
+                
+                <!-- Video Controls Mockup -->
+                <div class="absolute bottom-0 left-0 right-0 p-4 video-overlay flex flex-col justify-end">
+                    <div class="flex items-center justify-between text-white mb-2">
+                        <div class="flex items-center gap-4">
+                            <button class="hover:text-freedom-red transition-colors"><i class="fas fa-play text-xl"></i></button>
+                            <button class="hover:text-freedom-red transition-colors"><i class="fas fa-volume-up text-xl"></i></button>
+                            <span class="text-sm font-mono">00:00 / 45:12</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <button class="hover:text-freedom-red transition-colors"><i class="fas fa-cog text-xl"></i></button>
+                            <button class="hover:text-freedom-red transition-colors"><i class="fas fa-expand text-xl"></i></button>
+                        </div>
+                    </div>
+                    <!-- Progress Bar Mockup -->
+                    <div class="w-full bg-gray-700 h-1.5 rounded overflow-hidden">
+                        <div class="bg-freedom-red h-full rounded w-1/4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black pt-12 pb-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                
+                <!-- Brand Info -->
+                <div class="col-span-1 md:col-span-1">
+                    <a href="#" class="flex items-center gap-2 mb-4">
+                        <img src="Freedom News Logo (No BG).jpg" alt="Freedom TV Logo" class="w-8 h-8 rounded-full object-cover border border-freedom-red">
+                        <span class="font-serif font-bold text-xl tracking-wider">FREEDOM<span class="text-freedom-red">TV</span></span>
+                    </a>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Part of the Freedom News Network. Completely protected from being paid-off, providing independent and unbiased coverage for the Republic of Freedom and beyond.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.youtube.com/@RepublicOfFreedomOfficial" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-youtube text-xl"></i></a>
+                        <a href="https://github.com/republic-of-freedom" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-github text-xl"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links 1 -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-wider mb-4 border-l-2 border-freedom-blue pl-2">Categories</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">US News</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">World Politics</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Economy & Finance</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Technology</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Opinion & Analysis</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links 2 -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-wider mb-4 border-l-2 border-freedom-blue pl-2">Network</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="https://sites.google.com/view/republic-of-freedom-official/home" target="_blank" class="hover:text-white transition-colors">Republic of Freedom Official</a></li>
+                        <li><a href="https://www.youtube.com/@RepublicOfFreedomOfficial" target="_blank" class="hover:text-white transition-colors">Freedom YouTube Channel</a></li>
+                        <li><a href="https://github.com/republic-of-freedom" target="_blank" class="hover:text-white transition-colors">GitHub Repository</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Links -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-wider mb-4 border-l-2 border-freedom-blue pl-2">Legal & Info</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="https://sites.google.com/view/republic-of-freedom-official/about-us-legal/legal/terms-of-service" target="_blank" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="https://sites.google.com/view/republic-of-freedom-official/about-us-legal/legal/privacy-policy" target="_blank" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="https://sites.google.com/view/republic-of-freedom-official/about-us-legal/legal/eula" target="_blank" class="hover:text-white transition-colors">EULA</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2026 Freedom News Network. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="https://sites.google.com/view/republic-of-freedom-official/about-us-legal/legal/privacy-policy" target="_blank" class="hover:text-gray-300">Privacy Policy</a>
+                    <a href="https://sites.google.com/view/republic-of-freedom-official/about-us-legal/legal/terms-of-service" target="_blank" class="hover:text-gray-300">Terms of Service</a>
+                    <a href="https://sites.google.com/view/republic-of-freedom-official/about-us-legal/legal/eula" target="_blank" class="hover:text-gray-300">EULA</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple interactivity for demo purposes
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.fa-bars').parentElement;
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                alert('Mobile menu navigation would open here.');
+            });
+
+            // Prevent default link behaviors for demo anchor links only
+            const links = document.querySelectorAll('a[href="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
